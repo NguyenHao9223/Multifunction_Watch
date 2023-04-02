@@ -115,6 +115,7 @@ void GetDateTime() {
 }
 void Digital_Clock_and_Date(byte h, byte m, byte s, byte dtw, byte dy, byte mt, int yr, char* st) {
   display.setTextColor(WHITE);
+  display.setTextSize(1);
   display.setCursor(35, 0);
   if (h < 10) {
     display.print("0");
@@ -144,16 +145,16 @@ void Digital_Clock_and_Date(byte h, byte m, byte s, byte dtw, byte dy, byte mt, 
   display.println(_nameoftheDay); 
 
   strcpy_P(_monthsName,(char*)pgm_read_word(&(months_name_table[mt-1])));
-  display.setCursor(50, 10);
+  display.setCursor(60, 10);
   if (dy < 10) {
     display.print("0");
     display.print(dy);
   } else {
     display.print(dy);
   }
-  display.print(", ");
+  display.print(",");
   display.print(_monthsName);
-  display.setCursor(95,10);
+  display.setCursor(100,10);
   display.print(yr);
 }
 void displayTempHumid(){

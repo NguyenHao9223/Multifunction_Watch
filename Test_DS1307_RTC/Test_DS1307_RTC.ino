@@ -1,4 +1,3 @@
-#include <Wire.h>
 #include "RTClib.h"
 
 RTC_DS1307 rtc; //khởi tạo đối tượng RTC_DS1307 có tên rtc.
@@ -21,6 +20,7 @@ void setup() {
   }
   if (! rtc.isrunning()) {  //module RTC đang hoạt động hay không. Nếu module không đang hoạt động, dòng chữ "RTC is NOT running!" sẽ được in ra màn hình.
     Serial.println("RTC is NOT running!");
+    rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
   }
 }
 void loop() {
