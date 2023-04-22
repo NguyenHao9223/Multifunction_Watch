@@ -11,6 +11,9 @@ void setup()
 }
 void loop() 
 {
+ Read_DHT11();
+}
+void Read_DHT11(){
   float doam = dht.readHumidity(); //Đọc độ ẩm
   float doC = dht.readTemperature(); //Đọc nhiệt độ C
   float doF = dht.readTemperature(true); //Đọc nhiệt độ F

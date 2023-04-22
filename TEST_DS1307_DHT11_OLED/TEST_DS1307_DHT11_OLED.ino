@@ -13,7 +13,7 @@ RTC_DS1307 rtc;
 #define OLED_RESET     4 
 Adafruit_SH1106 display(OLED_RESET);
 
-#define DHTPIN 2    
+#define DHTPIN 3    
 #define DHTTYPE DHT11   
 DHT dht(DHTPIN, DHTTYPE);
 const float NHIET_DO_CAO = 35.0; //Khai bao 1 bien nhiet do cao = 35 do C

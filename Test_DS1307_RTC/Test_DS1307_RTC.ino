@@ -20,8 +20,9 @@ void setup() {
   }
   if (! rtc.isrunning()) {  //module RTC đang hoạt động hay không. Nếu module không đang hoạt động, dòng chữ "RTC is NOT running!" sẽ được in ra màn hình.
     Serial.println("RTC is NOT running!");
-    rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+    
   }
+  //rtc.adjust(DateTime(2023, 4, 9, 14, 40, 0));
 }
 void loop() {
   GetDateTime(); //gọi hàm GetDateTime() để lấy thông tin thời gian và ngày trong tuần từ module RTC và lưu vào các biến _day, _month, _year, _hour24, _hour12, _minute, _second và _dtw.
