@@ -39,18 +39,18 @@ void loop() {
   display.setCursor(0,0); // Thiết lập vị trí con trỏ đến vị trí (0,0) trên màn hình OLED.
   display.print("Button 1 : ");// In ra chuỗi "Button 1 : " trên màn hình OLED.
   Button_1 = btn_Menu_Select; //Gán giá trị của biến btn_Menu_Select vào biến Button_1.
-  if (Button_1 == LOW) {  // Kiểm tra xem Button_1 có được nhấn hay không.
+  if (Button_1 == HIGH) {  // Kiểm tra xem Button_1 có được nhấn hay không.
     display.print("Pressed"); // In ra chuỗi "Pressed" trên màn hình OLED nếu Button_1 được nhấn.
-    Button_Sound(1);  //Gọi đến hàm Button_Sound() để phát ra âm thanh khi Button_1 được nhấn.
+    Button_Sound(0);  //Gọi đến hàm Button_Sound() để phát ra âm thanh khi Button_1 được nhấn.
   } else {
     display.print("UnPress"); //In ra chuỗi "UnPress" trên màn hình OLED nếu Button_1 không được nhấn.
   }
   display.setCursor(0,10);
   display.print("Button 2 : ");
   Button_2 = btn_Up;
-  if (Button_2 == LOW) {
+  if (Button_2 == HIGH) {
     display.print("Pressed");
-    Button_Sound(1);
+    Button_Sound(0);
   } else {
     display.print("UnPress");
   }
@@ -58,19 +58,19 @@ void loop() {
   display.setCursor(0,20); 
   display.print("Button 3 : ");
   Button_3 = btn_Down;
-  if (Button_3 == LOW) {
+  if (Button_3 == HIGH) {
     display.print("Pressed");
-    Button_Sound(1);
+    Button_Sound(0);
   } else {
     display.print("UnPress");
   }
-  if (Button_1 == HIGH && Button_2 == HIGH && Button_3 == HIGH) { //Kiểm tra xem các nút bấm có đều không được nhấn hay không.
-    Button_Sound(0);  //Gọi đến hàm Button_Sound() để tắt âm thanh nếu các nút bấm không được nhấn.
+  if (Button_1 == LOW && Button_2 == LOW && Button_3 == LOW) { //Kiểm tra xem các nút bấm có đều không được nhấn hay không.
+    Button_Sound(1);  //Gọi đến hàm Button_Sound() để tắt âm thanh nếu các nút bấm không được nhấn.
   }
   display.setCursor(0,55); //Thiết lập vị trí con trỏ đến vị trí (0,55) trên màn hình OLED.
   display.print("Buzzer : ");
   int Buzzer_Stat = digitalRead(Buzzer);  // Đọc trạng thái của chân kết nối với loa phát ra âm thanh và gán giá trị vào biến Buzzer_Stat.
-  if (Buzzer_Stat == 1) { //Kiểm tra xem loa phát ra âm thanh có đang hoạt động hay không.
+  if (Buzzer_Stat == 0) { //Kiểm tra xem loa phát ra âm thanh có đang hoạt động hay không.
     display.print("On");  //In ra chuỗi "On" trên màn hình OLED nếu Buzzer hoạt động.
   } else {
     display.print("Off"); //In ra chuỗi "Off" trên màn hình OLED nếu Buzzer không hoạt động.
